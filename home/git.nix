@@ -2,8 +2,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "YOUR_NAME"; # TODO replace
-    userEmail = "YOUR_EMAIL"; # TODO replace
+    userName = "Cristea Florian Victor";
+    userEmail = "florianvictorcristea@gmail.com";
 
     lfs.enable = true;
 
