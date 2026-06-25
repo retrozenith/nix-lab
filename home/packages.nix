@@ -21,7 +21,7 @@
       nixfmt-rfc-style
       yt-dlp
       ffmpeg
-      ollama
+      gnupg # Needed for mise
 
       # fonts
       nerd-fonts.fira-code
