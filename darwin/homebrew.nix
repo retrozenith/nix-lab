@@ -14,7 +14,8 @@
 
     # homebrew is best for GUI apps
     # nixpkgs is best for CLI tools
-    casks = [ # none for now
+    casks = [
+      "warp"
     ];
     brews = [
       "docker"

@@ -17,6 +17,7 @@
 
       # misc
       nil
+      nixd
       biome
       nixfmt-rfc-style
       yt-dlp
