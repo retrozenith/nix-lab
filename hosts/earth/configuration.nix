@@ -4,7 +4,7 @@
   ...
 }:
 {
-  networking.hostName = "mba-m4";
+  networking.hostName = "earth";
 
   # host-specific homebrew casks
   homebrew.casks = [

@@ -26,17 +26,16 @@
       ...
     }@inputs:
     let
-      # TODO: replace with your username
       primaryUser = "cristeaflorianvictor";
     in
     {
       # build darwin flake using:
       # $ darwin-rebuild build --flake .#<name>
-      darwinConfigurations."mba-m4" = darwin.lib.darwinSystem {
+      darwinConfigurations."earth" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin
-          ./hosts/mba-m4/configuration.nix
+          ./hosts/earth/configuration.nix
         ];
         specialArgs = { inherit inputs self primaryUser; };
       };
