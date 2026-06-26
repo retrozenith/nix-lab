@@ -2,14 +2,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Cristea Florian Victor";
-    userEmail = "florianvictorcristea@gmail.com";
-
-    lfs.enable = true;
-
-    ignores = [ "**/.DS_STORE" ];
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Cristea Florian Victor";
+        email = "florianvictorcristea@gmail.com";
+      };
       github = {
         user = primaryUser;
       };
@@ -17,5 +14,7 @@
         defaultBranch = "main";
       };
     };
+    lfs.enable = true;
+    ignores = [ "**/.DS_STORE" ];
   };
 }

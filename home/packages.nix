@@ -13,13 +13,13 @@
       zoxide
 
       # programming languages
-      mise # node, deno, bun, rust, python, etc.
+      #mise
 
       # misc
       nil
       nixd
       biome
-      nixfmt-rfc-style
+      nixfmt
       yt-dlp
       ffmpeg
       gnupg # Needed for mise

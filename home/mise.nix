@@ -1,32 +1,37 @@
 { pkgs, lib, ... }:
 {
-  programs.mise = {
-    enable = true;
-    enableZshIntegration = true;
-
-    settings = {
-      experimental = true;
-      verbose = false;
-      auto_install = true;
-    };
-  };
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISABLED: nix-built mise has HTTP bugs on x86_64-darwin (Rust 1.88 issue)
+  # See: https://github.com/NixOS/nixpkgs/issues/427748
+  # Using homebrew mise instead. Re-enable when nixpkgs fixes the issue.
+  # ─────────────────────────────────────────────────────────────────────────────
+  # programs.mise = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  #
+  #   settings = {
+  #     experimental = true;
+  #     verbose = false;
+  #     auto_install = true;
+  #   };
+  # };
 
   # activation script to set up mise configuration
   home.activation.setupMise = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     # use the virtual environment created by uv
-    # ${pkgs.mise}/bin/mise settings set python.uv_venv_auto true
+    # /opt/homebrew/bin/mise settings set python.uv_venv_auto true
 
     # enable corepack (pnpm, yarn, etc.)
-    ${pkgs.mise}/bin/mise set MISE_NODE_COREPACK=true
+    /opt/homebrew/bin/mise set MISE_NODE_COREPACK=true
 
     # disable warning about */.node-version files
-    ${pkgs.mise}/bin/mise settings add idiomatic_version_file_enable_tools "[]"
+    /opt/homebrew/bin/mise settings add idiomatic_version_file_enable_tools "[]"
 
     # set global tool versions (auto_install will handle installation)
-    ${pkgs.mise}/bin/mise use --global node@lts
-    ${pkgs.mise}/bin/mise use --global bun@latest
-    ${pkgs.mise}/bin/mise use --global deno@latest
-    ${pkgs.mise}/bin/mise use --global ubi:astral-sh/uv@latest
-    ${pkgs.mise}/bin/mise use --global rust@stable
+    /opt/homebrew/bin/mise use --global node@lts
+    /opt/homebrew/bin/mise use --global bun@latest
+    /opt/homebrew/bin/mise use --global deno@latest
+    /opt/homebrew/bin/mise use --global uv@latest
+    /opt/homebrew/bin/mise use --global rust@stable
   '';
 }
