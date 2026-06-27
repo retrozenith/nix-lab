@@ -45,9 +45,8 @@
       nixosConfigurations."mars" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./nixos
           ./hosts/mars/configuration.nix
-          ./hosts/mars/hardware-configuration.nix
-          home-manager.nixosModules.home-manager
         ];
         specialArgs = { inherit inputs self primaryUser; };
       };
