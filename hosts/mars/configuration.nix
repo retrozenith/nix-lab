@@ -1,7 +1,7 @@
 # Mars - Home Desktop (KDE Plasma)
 # Host-specific configuration only; common NixOS settings are in ../../nixos/
 
-{ config, pkgs, primaryUser, ... }:
+{ pkgs, primaryUser, ... }:
 
 {
   imports = [
