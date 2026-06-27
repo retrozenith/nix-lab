@@ -40,5 +40,17 @@
         specialArgs = { inherit inputs self primaryUser; };
       };
 
+      # build nixos flake using:
+      # $ nixos-rebuild build --flake .#<name>
+      nixosConfigurations."mars" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/mars/configuration.nix
+          ./hosts/mars/hardware-configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+        specialArgs = { inherit inputs self primaryUser; };
+      };
+
     };
 }

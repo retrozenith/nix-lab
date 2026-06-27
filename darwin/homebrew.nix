@@ -24,6 +24,9 @@
       "mos"
       "stirling-pdf"
       "altserver"
+      "spotify"
+      "tailscale"
+      "caffeine"
     ];
     brews = [
       "docker"

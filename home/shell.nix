@@ -1,4 +1,4 @@
-_: {
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -8,7 +8,10 @@ _: {
     shellAliases = {
       la = "ls -la";
       ".." = "cd ..";
-      "nix-switch" = "sudo darwin-rebuild switch --flake ~/.config/nix";
+      nix-switch = if pkgs.stdenv.isDarwin then
+        "sudo darwin-rebuild switch --flake ~/.config/nix"
+      else
+        "sudo nixos-rebuild switch --flake ~/.config/nix#mars";
     };
   };
 
