@@ -2,7 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, self, primaryUser, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  self,
+  primaryUser,
+  ...
+}:
 
 {
   imports = [
@@ -60,7 +67,10 @@
       "wheel"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ ];
+    packages = with pkgs; [
+      brave
+      zed-editor
+    ];
   };
 
   # Allow unfree packages
@@ -75,7 +85,10 @@
   ];
 
   # Enable experimental features in Nix
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable system-wide shell requirements
   programs.zsh.enable = true;
